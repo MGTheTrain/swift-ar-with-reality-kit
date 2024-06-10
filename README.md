@@ -12,8 +12,8 @@ Immersive and interactive augmented reality (AR) sample applications using the S
 
 ## Features
 
-- [ ] Compilation on iOS
-- [ ] USD scene loading
+- [x] Compilation on iOS
+- [x] USD scene loading
 
 ## Getting started
 

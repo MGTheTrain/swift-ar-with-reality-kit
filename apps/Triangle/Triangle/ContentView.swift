@@ -41,7 +41,7 @@ struct ARViewContainer: UIViewRepresentable {
         let meshResource = try! MeshResource.generate(from: [meshDescriptor])
         
         // Create a material
-        let material = SimpleMaterial(color: .blue, isMetallic: true)
+        let material = SimpleMaterial(color: .blue, isMetallic: false)
         
         // Create a model entity
         let modelEntity = ModelEntity(mesh: meshResource, materials: [material])

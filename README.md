@@ -29,3 +29,7 @@ Launch one of the [sample applications](./apps/) in Xcode. Connect your iOS devi
 Results for the [Triangle application](./apps/Triangle/) should resemble:
 
 ![Triangle](./images/Triangle.jpg)
+
+Results for the [USDScene application](./apps/USDScene/) should resemble:
+
+![USDScene](./images/USDScene.jpg)

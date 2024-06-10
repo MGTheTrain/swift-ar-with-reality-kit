@@ -16,9 +16,6 @@ Immersive and interactive augmented reality (AR) sample applications using the S
 
 - [ ] Compilation on iOS
 - [ ] USD scene loading
-- [ ] High code coverage
-- [ ] CI workflows ensuring continuous testing of the modules 
-- [ ] Skeletal animation support (**OPTIONAL**)
 
 ## Getting started
 

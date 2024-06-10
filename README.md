@@ -15,7 +15,6 @@ Immersive and interactive augmented reality (AR) sample applications using the S
 ## Features
 
 - [ ] Compilation on iOS
-- [ ] Compilation on macOS
 - [ ] USD scene loading
 - [ ] High code coverage
 - [ ] CI workflows ensuring continuous testing of the modules 

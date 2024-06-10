@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealityKit
+import ARKit
 
 struct ContentView : View {
     var body: some View {
@@ -15,32 +16,53 @@ struct ContentView : View {
 }
 
 struct ARViewContainer: UIViewRepresentable {
-    
     func makeUIView(context: Context) -> ARView {
-        
         let arView = ARView(frame: .zero)
-
-        // Create a cube model
-        let mesh = MeshResource.generateBox(size: 0.1, cornerRadius: 0.005)
-        let material = SimpleMaterial(color: .gray, roughness: 0.15, isMetallic: true)
-        let model = ModelEntity(mesh: mesh, materials: [material])
-        model.transform.translation.y = 0.05
-
-        // Create horizontal plane anchor for the content
-        let anchor = AnchorEntity(.plane(.horizontal, classification: .any, minimumBounds: SIMD2<Float>(0.2, 0.2)))
-        anchor.children.append(model)
-
-        // Add the horizontal plane anchor to the scene
-        arView.scene.anchors.append(anchor)
-
-        return arView
         
+        // Configure the AR session
+        let config = ARWorldTrackingConfiguration()
+        config.planeDetection = [.horizontal, .vertical]
+        arView.session.run(config)
+        
+        // Define the vertices and indices for the triangle
+        let vertices: [SIMD3<Float>] = [
+            SIMD3<Float>(0, 0.1, 0),  // Top vertex
+            SIMD3<Float>(-0.1, -0.1, 0),  // Bottom-left vertex
+            SIMD3<Float>(0.1, -0.1, 0)  // Bottom-right vertex
+        ]
+        
+        let indices: [UInt32] = [0, 1, 2]
+        
+        // Create a custom mesh from the vertices and indices
+        var meshDescriptor = MeshDescriptor(name: "triangle")
+        meshDescriptor.positions = MeshBuffers.Positions(vertices)
+        meshDescriptor.primitives = .triangles(indices)
+        
+        let meshResource = try! MeshResource.generate(from: [meshDescriptor])
+        
+        // Create a material
+        let material = SimpleMaterial(color: .blue, isMetallic: true)
+        
+        // Create a model entity
+        let modelEntity = ModelEntity(mesh: meshResource, materials: [material])
+        
+        // Create an anchor and add the model entity to it
+        let anchor = AnchorEntity(plane: .any)
+        anchor.addChild(modelEntity)
+        
+        // Add the anchor to the scene
+        arView.scene.anchors.append(anchor)
+        
+        return arView
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {}
-    
 }
 
-#Preview {
-    ContentView()
+#if DEBUG
+struct ContentView_Previews : PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
+#endif

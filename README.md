@@ -19,4 +19,15 @@ Immersive and interactive augmented reality (AR) sample applications using the S
 
 ## Getting started
 
-TBD
+### Preconditions
+
+- MacOS device with XCode version >=15.3
+- iOS 17.4 device
+
+### Steps
+
+Launch one of the [sample applications](./apps/) in Xcode. Connect your iOS device to your macOS device. Then build and run the applications on the designated iOS device
+
+Results for the [Triangle application](./apps/Triangle/) should resemble:
+
+![Triangle](./images/Triangle.jpg)

@@ -5,6 +5,7 @@
 + [Summary](#summary)
 + [Features](#features)
 + [Getting started](#getting-started)
++ [Results](#results)
 
 ## Summary
 
@@ -24,7 +25,9 @@ Immersive and interactive augmented reality (AR) sample applications using the S
 
 ### Steps
 
-Launch one of the [sample applications](./apps/) in Xcode. Connect your iOS device to your macOS device. Then build and run the applications on the designated iOS device
+Launch one of the [sample applications](./apps/) in Xcode. Connect your iOS device to your macOS device. Then build and run the applications on the designated iOS device.
+
+## Results
 
 Results for the [Triangle application](./apps/Triangle/) should resemble:
 
